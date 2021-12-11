@@ -1,0 +1,51 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-12-11 15:54:54
+ * @LastEditTime: 2021-12-11 16:11:00
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \JS复习\选择结构\自动问候.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动问候</title>
+    <style>
+        #div {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+
+    <script>
+        var date = new Date()
+        var hour = date.getHours()
+        var div = document.getElementById("div")
+        if (hour > 0 && hour <= 6) {
+            div.innerHTML = "你不会是熬通宵吧，别太辛苦哦！"
+        } else if (hour > 6 && hour <= 8) {
+            div.innerHTML = "早上好"
+        } else if (hour > 8 && hour <= 11) {
+            div.innerHTML = "上午好"
+        } else if (hour > 11 && hour <= 13) {
+            div.innerHTML = "午饭吃过了嘛"
+        } else if (hour > 13 && hour <= 17) {
+            div.innerHTML = "下午好"
+        } else {
+            div.innerHTML = "晚上好"
+        }
+    </script>
+</body>
+
+</html>

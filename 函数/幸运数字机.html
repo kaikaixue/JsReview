@@ -1,0 +1,53 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-12-11 16:22:41
+ * @LastEditTime: 2021-12-11 16:42:33
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \JS复习\函数\幸运数字机.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var total = 0
+        var win = 0
+        var message = '赢'
+        let arr = []
+
+        window.onload(play())
+
+        function play() {
+            total++
+            for (let i = 0; i < 3; i++) {
+                arr[i] = rand()
+            }
+            if (arr.indexOf(8) > -1) {
+                message = '赢'
+                win++
+            } else {
+                message = '输'
+            }
+            var message = confirm(`${arr}\n${message}\n胜率${win / total * 100}%,继续吗？`)
+
+            if (message == true) {
+                play()
+            } else {
+            }
+        }
+
+        function rand() {
+            return Math.floor(Math.random() * 9)
+        }
+    </script>
+</body>
+
+</html>
