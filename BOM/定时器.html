@@ -1,0 +1,50 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-12-12 22:43:27
+ * @LastEditTime: 2021-12-12 23:09:35
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \JS复习\BOM\定时器.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="play()">开始</button>
+    <button onclick="stop()">停止</button>
+    <img id="img" src="https://xuekaikai.oss-cn-shanghai.aliyuncs.com/campus_navigatic/%E4%B9%90%E4%B8%9A%E6%A5%BC.jpg"
+        alt="" style="width: 400px; height: 400px;">
+    <script>
+        let timer;
+        var list = [
+            'https://xuekaikai.oss-cn-shanghai.aliyuncs.com/campus_navigatic/%E4%B9%90%E4%B8%9A%E6%A5%BC.jpg',
+            'https://xuekaikai.oss-cn-shanghai.aliyuncs.com/campus_navigatic/%E4%B9%90%E7%BE%A4%E6%A5%BC.jpg',
+            'https://xuekaikai.oss-cn-shanghai.aliyuncs.com/campus_navigatic/%E6%95%AC%E4%B8%9A%E6%A5%BC.jpg'
+        ]
+        let i = 0;
+        var img = document.getElementById('img')
+        function play() {
+             timer = setInterval(() => {
+                console.log(i)
+                i++;
+                if (i == 3) {
+                    i = 0
+                }
+                img.src = list[i]
+            }, 1000)
+        }
+
+        function stop() {
+            clearInterval(timer)
+        }
+    </script>
+</body>
+
+</html>
