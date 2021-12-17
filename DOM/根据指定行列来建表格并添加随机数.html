@@ -1,0 +1,43 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-12-15 22:48:06
+ * @LastEditTime: 2021-12-17 20:26:51
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \JS复习\DOM\根据指定行列来建表格并添加随机数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var myBody = document.getElementsByTagName('body')[0]
+        var myTable = document.createElement("table")
+        var myTableBody = document.createElement("tbody")
+        let hang = prompt('请输入行数')
+        let lie = prompt('请输入列数')
+        console.log(hang.valueOf())
+        for (let i = 0; i < hang; i++) {
+            let row = document.createElement("tr")
+            for (let j = 0; j < lie; j++) {
+                let cell = document.createElement("td")
+                let text = document.createTextNode(Math.random(10))
+                cell.appendChild(text)
+                row.appendChild(cell)
+            }
+            myTableBody.appendChild(row)
+        }
+        myTable.appendChild(myTableBody)
+        myBody.appendChild(myTable)
+        myTable.setAttribute("border", "2")
+    </script>
+</body>
+
+</html>

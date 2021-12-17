@@ -1,0 +1,63 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-12-13 21:48:05
+ * @LastEditTime: 2021-12-13 21:57:19
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \JS复习\DOM\图片点击向前向后.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="prev()">向前</button>
+    <img id="img" src="" alt="" style="width: 200px; height: 200px;">
+    <button onclick="next()">向后</button>
+    <script>
+        var list = [
+            'https://xuekaikai.oss-cn-shanghai.aliyuncs.com/campus_navigatic/%E4%B9%90%E4%B8%9A%E6%A5%BC.jpg',
+            'https://xuekaikai.oss-cn-shanghai.aliyuncs.com/campus_navigatic/%E4%B9%90%E7%BE%A4%E6%A5%BC.jpg',
+            'https://xuekaikai.oss-cn-shanghai.aliyuncs.com/campus_navigatic/%E6%95%AC%E4%B8%9A%E6%A5%BC.jpg'
+        ]
+        var index = 0
+        var img = document.getElementById('img')
+        let timer = setInterval(() => {
+            if (++index == 3) {
+                index = 0
+            }
+            img.src = list[index]
+        }, 1500)
+
+        window.onload = function () {
+            img.src = list[0]
+        }
+        function prev() {
+            if (index == 0) {
+                index = 2;
+                img.src = list[index]
+            } else {
+                index--;
+                img.src = list[index]
+            }
+        }
+
+        function next() {
+            if (index == 2) {
+                index = 0
+                img.src = list[index]
+            } else {
+                index++;
+                img.src = list[index]
+            }
+        }
+    </script>
+</body>
+
+</html>
