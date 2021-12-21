@@ -1,0 +1,62 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-12-21 09:17:21
+ * @LastEditTime: 2021-12-21 09:36:15
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \JS复习\表单\全选全不选.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">个人爱好
+        <input type="checkbox" name="hobby" id="all" onclick="setChecked(this)">全选
+        <input type="checkbox" name="hobby" id="noAll" onclick="setChecked(this)">全不选
+        <input type="checkbox" name="hobby" onclick="setChecked(this)">1
+        <input type="checkbox" name="hobby" onclick="setChecked(this)">2
+        <input type="checkbox" name="hobby" onclick="setChecked(this)">3
+        <input type="checkbox" name="hobby" onclick="setChecked(this)">4
+    </label>
+    <script>
+        function setChecked(obj) {
+            console.log(obj)
+            var arr = document.getElementsByName('hobby')
+            if (obj.id == "all") {
+                for (let i = 2; i < arr.length; i++) {
+                    if (obj.checked) {
+                        arr[1].checked = false
+                        arr[i].checked = true
+                    }
+                }
+            } else if (obj.id == "noAll") {
+                for (let i = 2; i < arr.length; i++) {
+                    if (obj.checked) {
+                        arr[0].checked = false
+                        arr[i].checked = false
+                    }
+                }
+            } else {
+                if (arr[2].checked && arr[3].checked && arr[4].checked && arr[5].checked) {
+                    arr[0].checked = true
+                    arr[1].checked = false
+                } else if (arr[2].checked == false && arr[3].checked == false && arr[4].checked == false && arr[5].checked == false) {
+                    arr[0].checked = false
+                    arr[1].checked = true
+                } else {
+                    arr[0].checked = false
+                    arr[1].checked = false
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

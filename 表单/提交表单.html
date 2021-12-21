@@ -1,0 +1,55 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-12-21 08:33:04
+ * @LastEditTime: 2021-12-21 09:05:25
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \JS复习\表单\提交表单.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="return false">
+        <input type="text" placeholder="请输入姓名" id="name"><br>
+        <label for="sex">性别：
+            <input type="radio" name="sex" value="男" checked>男
+            <input type="radio" name="sex" value="女">女
+        </label>
+        <select name="" id="select">
+            <option value="1">111</option>
+            <option value="2">222</option>
+            <option value="3">333</option>
+        </select>
+        <button type="submit" onclick="show()">提交</button>
+    </form>
+
+    <script>
+        function show() {
+
+            var tip = "姓名：";
+            var name = document.getElementById('name')
+            tip += name.value
+            var sexArr = document.getElementsByName('sex')
+            for (let i in sexArr) {
+                if (sexArr[i].checked) {
+                    tip += '性别：' + sexArr[i].value
+                }
+            }
+            var select = document.getElementById('select')
+            tip += '喜欢的运动：' + select.options[select.selectedIndex].text
+            console.log(tip)
+            alert(tip)
+        }
+
+    </script>
+</body>
+
+</html>
